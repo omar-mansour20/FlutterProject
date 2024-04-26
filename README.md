@@ -1,4 +1,4 @@
-# hotel_reservation_project
+# project
 
 A new Flutter project.
 

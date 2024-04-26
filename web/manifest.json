@@ -1,6 +1,6 @@
 {
-    "name": "hotel_reservation_project",
-    "short_name": "hotel_reservation_project",
+    "name": "project",
+    "short_name": "project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
