@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_reservation_project/login.dart';
+import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
 import 'package:hotel_reservation_project/forgetpassword.dart';
 import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';
 
@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute : LoginScreen.screenRoute,
+        initialRoute : loginScreen.screenRoute,
         routes: {
         SignUpScreen.screenRoute: (context)=> SignUpScreen(),
-        LoginScreen.screenRoute: (context)=> LoginScreen(),
+        loginScreen.screenRoute: (context)=> loginScreen(),
         ForgetPasswordScreen.screenRoute: (context)=> ForgetPasswordScreen(),
         },
       );
