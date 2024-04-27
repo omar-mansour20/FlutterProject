@@ -1,40 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_reservation_project/core/validation.dart';
+import 'package:hotel_reservation_project/features/auth/confirm_password/view/page/confirm_password_page.dart';
 
 
-
-class ForgetPasswordScreen extends StatefulWidget{
-  static const String screenRoute = 'forgetPassword_screen';
-
-  const ForgetPasswordScreen({Key? key}) : super(key: key);
-
-    @override
-   State<ForgetPasswordScreen>createState() => _ForgetPasswordScreenState();
-} 
-
-class _ForgetPasswordScreenState extends State<ForgetPasswordScreen>{
-  
-  final TextEditingController _emailController = TextEditingController();
-  final _fromkey = GlobalKey<FormState>();
-
-  String? validateEmail(String? email) {
-    RegExp exp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-    final isemailvalid = exp.hasMatch(email ?? '');
-    if (!isemailvalid) {
-      return 'Please enter your email';
-    }
-    return null;
-  }
+class forget_password_component extends StatelessWidget {
+  const forget_password_component({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Stack(
+    final TextEditingController _emailController = TextEditingController();
+    final _fromkey = GlobalKey<FormState>();
+
+    return  Stack(
         children: [
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/bb.jpeg"),
+                image: AssetImage('assets/a.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -56,16 +38,23 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen>{
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.7),
                       ),
-                      validator: validateEmail,
+                      validator: my_validation().emailValidate,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                     SizedBox(height: 20.0),
                     // Reset Password button
                     ElevatedButton(
                       onPressed: () {
-                        _fromkey.currentState!.validate();
-                        String email = _emailController.text;
-                        print('Password reset request for $email');
+                        if (_fromkey.currentState!.validate()) {
+                          String email = _emailController.text;
+                          print('Password reset request for $email');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('successfully')),
+                          );
+                          Navigator.pushNamed(context, confirmPasswordScreen.screenRoute);
+                        }
+
+
                       },
                       child: Text('Reset Password'),
                     ),
@@ -75,8 +64,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen>{
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }
-

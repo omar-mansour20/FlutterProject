@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/login_validation.dart';
 import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';
-import 'package:hotel_reservation_project/ForgetPassword.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forget_password_page.dart';
 
 
 class login_data_component extends StatelessWidget {
@@ -107,7 +107,7 @@ class login_data_component extends StatelessWidget {
                     // forgetpassword button
 
                     TextButton(onPressed:(){
-                      Navigator.pushNamed(context, ForgetPasswordScreen.screenRoute);
+                      Navigator.pushNamed(context, forgetPaswwordScreen.screenRoute);
                     }, child: Text('Forget Password', style: TextStyle
                       (
                       decoration: TextDecoration.underline,
