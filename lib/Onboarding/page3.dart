@@ -19,7 +19,7 @@ class _Onpage3State extends State<Onpage3> {
           mainAxisAlignment: MainAxisAlignment.center,
           children:
            [
-            Image.asset(controller.items[index].image),
+            Image.asset(controller.items[2].image),
             const SizedBox(height: 10),
             Text(controller.items[2].title,
              style:const TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),

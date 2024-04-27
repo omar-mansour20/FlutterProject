@@ -43,7 +43,7 @@ class _MyLoginState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/images/bb.jpeg'), fit: BoxFit.cover),),
+        image: DecorationImage(image: AssetImage('assets/images/loginpage.png'), fit: BoxFit.cover),),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black54,

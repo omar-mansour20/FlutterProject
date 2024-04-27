@@ -4,17 +4,18 @@ class OnboardingItems {
   List<OnboardingInfo> items = [
     OnboardingInfo(
       title: "Hello",
-     descriptions: "A cozy boutique hotel tucked away in a vibrant neighborhood, our establishment offers an intimate and personalized experience for every guest.", 
-     image: "assets/images/onboarding1.png"),
+     descriptions: "Discover the perfect hotel nestled in the heart of the city, where comfort meets convenience.", 
+     image: "assets/images/onboardpage1.png"),
       
       OnboardingInfo(
       title: " Boutique Hotel",
-     descriptions: "A cozy boutique hotel tucked away in a vibrant neighborhood, our establishment offers an intimate and personalized experience for every guest. ", 
-     image: "assets/images/onboarding1.png"),
+     descriptions: "Experience luxury at its finest at our 5-star hotel, where every detail is crafted to exceed your expectations. ", 
+     image: "assets/images/onboardpage2.png"),
       
       OnboardingInfo(
       title: "Started",
-     descriptions: "A cozy boutique hotel tucked away in a vibrant neighborhood, our establishment offers an intimate and personalized experience for every guest. ", 
-     image: "assets/images/onboarding1.png")
+     descriptions: "Discover a hotel where your welcome begins the moment you register on our website. ", 
+     image: "assets/images/onboardpage3.png",
+     )
   ];
 }

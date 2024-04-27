@@ -19,7 +19,7 @@ class _Onpage2State extends State<Onpage2> {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(controller.items[index].image),
+            Image.asset(controller.items[1].image),
             const SizedBox(height: 10),
             Text(
               controller.items[1].title,
