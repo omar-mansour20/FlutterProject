@@ -10,8 +10,6 @@ class loginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child:  Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(),
         body: login_data_component(),
       ),
     );
