@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget{
         forgetPaswwordScreen.screenRoute: (context)=> forgetPaswwordScreen(),
         VerificationCodeScreen.screenRoute: (context)=> VerificationCodeScreen(),
         confirmPasswordScreen.screenRoute: (context)=> confirmPasswordScreen(),
-         OnboradingView.screenRoute: (context) =>  OnboradingView(),
+        OnboradingView.screenRoute: (context) =>  OnboradingView(),
         },
       );
   }
