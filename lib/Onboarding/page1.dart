@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/Onboarding/onbording_item.dart';
+import 'package:hotel_reservation_project/Onboarding/onbording_item.dart';
 
 class Onpage1 extends StatefulWidget {
   @override

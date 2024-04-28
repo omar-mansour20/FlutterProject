@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/login_validation.dart';
 import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';
-import 'package:hotel_reservation_project/ForgetPassword.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forget_password_page.dart';
 
 
 class login_data_component extends StatelessWidget {
@@ -15,7 +15,7 @@ class login_data_component extends StatelessWidget {
 
      return  Container(
     decoration: const BoxDecoration(
-      image: DecorationImage(image: AssetImage('assets/bb.jpeg'), fit: BoxFit.cover),),
+      image: DecorationImage(image: AssetImage('assets/images/loginpage.png'), fit: BoxFit.cover),),
        child: Scaffold(
          appBar: AppBar(
            backgroundColor: Colors.black54,
@@ -43,7 +43,9 @@ class login_data_component extends StatelessWidget {
                   decoration: InputDecoration(
                     fillColor: Colors.grey.shade100,
                     filled: true,
-                    hintText: 'Email',
+                     labelText: "Email",
+                    hintText: 'xxx@gmail.com',
+                  prefixIcon: Icon(Icons.mail),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),),),
                    validator: login_validation().validateEmail,   ),
                 SizedBox(
@@ -55,7 +57,10 @@ class login_data_component extends StatelessWidget {
                     decoration: InputDecoration(
                       fillColor: Colors.grey.shade100,
                       filled: true,
-                      hintText: 'Password',
+                       labelText: "password",
+                       hintText: 'at least 6 characters',
+                       prefixIcon: Icon(Icons.lock),
+                       suffixIcon: Icon(Icons.remove_red_eye),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
                   validator: login_validation().validatePassword,
                 ),
@@ -107,7 +112,7 @@ class login_data_component extends StatelessWidget {
                     // forgetpassword button
 
                     TextButton(onPressed:(){
-                      Navigator.pushNamed(context, ForgetPasswordScreen.screenRoute);
+                      Navigator.pushNamed(context, forgetPaswwordScreen.screenRoute);
                     }, child: Text('Forget Password', style: TextStyle
                       (
                       decoration: TextDecoration.underline,

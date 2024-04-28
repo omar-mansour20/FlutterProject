@@ -42,4 +42,14 @@ class my_validation {
     }
     return 'Invalid phone';
   }
+
+   String? codeValidate(String? input) {
+    if (input == null || input == input.isEmpty) {
+      return 'Please enter the verification code';
+    }
+    if (input.length!= 6) {
+      return 'Verification code should be 6 digits';
+    }
+    return null;
+  }
 }

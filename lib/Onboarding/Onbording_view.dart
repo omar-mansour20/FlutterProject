@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project/Onboarding/onbording_item.dart';
-import 'package:project/Onboarding/page1.dart';
-import 'package:project/Onboarding/page2.dart';
-import 'package:project/Onboarding/page3.dart';
-import 'package:project/login.dart';
+import 'package:hotel_reservation_project/Onboarding/onbording_item.dart';
+import 'package:hotel_reservation_project/Onboarding/page1.dart';
+import 'package:hotel_reservation_project/Onboarding/page2.dart';
+import 'package:hotel_reservation_project/Onboarding/page3.dart';
+import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboradingView extends StatefulWidget {
@@ -50,7 +50,7 @@ class _OnboradingViewState extends State<OnboradingView> {
             onLastPage
                 ? TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginScreen.screenRoute);
+                      Navigator.pushNamed(context, loginScreen.screenRoute);
                     },
                     child: const Text("done"))
                 : TextButton(
