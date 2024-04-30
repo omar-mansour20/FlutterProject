@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/validation.dart';
-
-import 'package:hotel_reservation_project/features/auth/vererfication_code/view/page/verification_code_page.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/controller/forget_password_controller.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/controller/forget_password_state.dart';
 
 class forget_password_component extends StatelessWidget {
-  const forget_password_component({super.key});
-
+  forget_password_component({super.key, required this.controller});
+  final ForgetPasswordController controller;
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
-    final _fromkey = GlobalKey<FormState>();
-
-    return  Stack(
+    return BlocProvider.value(
+        value: controller,
+        child: BlocBuilder<ForgetPasswordController,ForgetPasswordState>(
+        builder: (context, state)
+    {
+      ForgetPasswordController controller = context.read<
+          ForgetPasswordController>();
+      return Stack(
         children: [
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/a.jpg'),
+                image: AssetImage('assets/images/a.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -26,13 +30,13 @@ class forget_password_component extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(
-                key: _fromkey,
+                key: controller.formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     TextFormField(
-                      controller: _emailController,
+                      controller: controller.EmailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
@@ -46,16 +50,7 @@ class forget_password_component extends StatelessWidget {
                     // Reset Password button
                     ElevatedButton(
                       onPressed: () {
-                        if (_fromkey.currentState!.validate()) {
-                          String email = _emailController.text;
-                          print('Password reset request for $email');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('successfully')),
-                          );
-                          Navigator.pushNamed(context, VerificationCodeScreen.screenRoute);
-                        }
-
-
+                        controller.OnPressedConfirmButtom(context);
                       },
                       child: Text('Reset Password'),
                     ),
@@ -66,5 +61,8 @@ class forget_password_component extends StatelessWidget {
           ),
         ],
       );
+    },
+    ),
+    );
   }
 }
