@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/validation.dart';
-import 'package:hotel_reservation_project/features/auth/vererfication_code/view/page/verification_code_page.dart';
+import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
+
 
 class confirm_password_component extends StatelessWidget {
   const confirm_password_component({super.key});
@@ -49,7 +50,7 @@ class confirm_password_component extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('successfully')),
                       );
-                      Navigator.pushNamed(context, VerificationCodeScreen.screenRoute);
+                      Navigator.pushNamed(context, loginScreen.screenRoute);
                     }
                   },
                   child: Text('Confirm'),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/validation.dart';
-import 'package:hotel_reservation_project/features/auth/confirm_password/view/page/confirm_password_page.dart';
+
+import 'package:hotel_reservation_project/features/auth/vererfication_code/view/page/verification_code_page.dart';
 
 
 class forget_password_component extends StatelessWidget {
@@ -51,7 +52,7 @@ class forget_password_component extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('successfully')),
                           );
-                          Navigator.pushNamed(context, confirmPasswordScreen.screenRoute);
+                          Navigator.pushNamed(context, VerificationCodeScreen.screenRoute);
                         }
 
 
