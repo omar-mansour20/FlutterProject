@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_reservation_project/core/login_validation.dart';
+import 'package:hotel_reservation_project/features/auth/login/controller/login_controller.dart';
+import 'package:hotel_reservation_project/features/auth/login/controller/login_state.dart';
 import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';
-import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forget_password_page.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forgetPassword_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class login_data_component extends StatelessWidget {
-  const login_data_component({super.key});
-
+  login_data_component({super.key, required this.controller});
+  final LoginController controller;
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
 
-     return  Container(
+
+    return BlocProvider.value(
+          value: controller,
+          child: BlocBuilder<LoginController,LoginState>(
+          builder: (context, state) {
+        LoginController controller=context.read<LoginController>();
+      return Container(
     decoration: const BoxDecoration(
       image: DecorationImage(image: AssetImage('assets/images/loginpage.png'), fit: BoxFit.cover),),
        child: Scaffold(
@@ -34,33 +40,33 @@ class login_data_component extends StatelessWidget {
           Container(
             padding: EdgeInsets.only( top:MediaQuery.of(context).size.height * 0.3, right: 35, left: 35),
             child: Form(
-              key: _formKey,
+              key: controller.formkey,
             child: Column(
               children: [
                 TextFormField(
-                  controller: _emailController,
+                  controller: controller.EmailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     fillColor: Colors.grey.shade100,
                     filled: true,
-                     labelText: "Email",
+                    labelText: "Email",
                     hintText: 'xxx@gmail.com',
-                  prefixIcon: Icon(Icons.mail),
+                    prefixIcon: Icon(Icons.mail),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),),),
                    validator: login_validation().validateEmail,   ),
                 SizedBox(
                   height: 20,
                 ),
                 TextFormField(
-                  controller: _passwordController,
+                  controller: controller.passwordController,
                   obscureText: true,
                     decoration: InputDecoration(
                       fillColor: Colors.grey.shade100,
                       filled: true,
-                       labelText: "password",
-                       hintText: 'at least 6 characters',
-                       prefixIcon: Icon(Icons.lock),
-                       suffixIcon: Icon(Icons.remove_red_eye),
+                      labelText: "Password",
+                      hintText: 'at least 8 characters',
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: Icon(Icons.remove_red_eye),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
                   validator: login_validation().validatePassword,
                 ),
@@ -76,16 +82,10 @@ class login_data_component extends StatelessWidget {
                   backgroundColor: Colors.blueAccent,
                    child:IconButton(
                      onPressed: (){
-                        if (_formKey.currentState!.validate()) {
-                           // Validation passed
-                           // Implement your account creation logic here
-                         ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('successfully')),
-                );
-              }
-            },
-            icon: Icon(Icons.arrow_forward),
-          ),
+                        controller.OnPressedConfirmButtom(context);
+                  },
+                    icon: Icon(Icons.arrow_forward),
+                  ),
         ),],
                 ),
       SizedBox(
@@ -129,5 +129,8 @@ class login_data_component extends StatelessWidget {
       ),
     ),
     );
-  }
+  },
+  ),
+  );
+}
 }
