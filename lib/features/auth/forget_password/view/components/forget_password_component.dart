@@ -52,7 +52,7 @@ class forget_password_component extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('successfully')),
                           );
-                          Navigator.pushNamed(context, VerificationCodeScreen.screenRoute);
+                          Navigator.pushNamed(context, 'verificationCode');
                         }
 
 

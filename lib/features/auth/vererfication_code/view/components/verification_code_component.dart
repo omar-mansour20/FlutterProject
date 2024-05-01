@@ -90,7 +90,7 @@ class verification_code_component extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('successfully')),
                       );
-                      Navigator.pushNamed(context, confirmPasswordScreen.screenRoute);
+                      Navigator.pushNamed(context, 'confirmPassword');
                     }
 
                   },

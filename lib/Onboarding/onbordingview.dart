@@ -7,7 +7,6 @@ import 'package:hotel_reservation_project/features/auth/login/view/page/login.da
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboradingView extends StatefulWidget {
-  static const String screenRoute = 'onbordingscreen';
 
   const OnboradingView({Key? key}) : super(key: key);
 
@@ -56,7 +55,7 @@ class _OnboradingViewState extends State<OnboradingView> {
             onLastPage
                 ? TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, loginScreen.screenRoute);
+                      Navigator.pushNamed(context, 'login');
                     },
                     child: const Text(
                       "done",

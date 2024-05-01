@@ -98,7 +98,10 @@ class login_data_component extends StatelessWidget {
                                 // Implement your account creation logic here
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('successfully')),
+                                  
                                 );
+                                Navigator.pushNamed(
+                                context, 'dashBoard');
                               }
                             },
                             icon: Icon(Icons.arrow_forward),
@@ -117,7 +120,7 @@ class login_data_component extends StatelessWidget {
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(
-                                context, SignUpScreen.screenRoute);
+                                context, 'signup');
                           },
                           child: Text(
                             'Sign Up',
@@ -134,7 +137,7 @@ class login_data_component extends StatelessWidget {
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(
-                                context, forgetPaswwordScreen.screenRoute);
+                                context, 'forgetpPassword');
                           },
                           child: Text(
                             'Forget Password',

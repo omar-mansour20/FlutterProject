@@ -50,7 +50,7 @@ class confirm_password_component extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('successfully')),
                       );
-                      Navigator.pushNamed(context, loginScreen.screenRoute);
+                      Navigator.pushNamed(context, 'login');
                     }
                   },
                   child: Text('Confirm'),
