@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_reservation_project/features/auth/Onboarding/onbordingview.dart';
+import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forgetPassword_page.dart';
+import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
+import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';
 import 'package:hotel_reservation_project/Onboarding/onbordingview.dart';
 import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
 import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_page.dart';

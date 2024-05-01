@@ -49,6 +49,9 @@ class login_data_component extends StatelessWidget {
                   decoration: InputDecoration(
                     fillColor: Colors.grey.shade100,
                     filled: true,
+                    labelText: "Email",
+                    hintText: 'xxx@gmail.com',
+                    prefixIcon: Icon(Icons.mail),
                     hintText: 'Email',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),),),
                    validator: login_validation().validateEmail,   ),
@@ -61,6 +64,10 @@ class login_data_component extends StatelessWidget {
                     decoration: InputDecoration(
                       fillColor: Colors.grey.shade100,
                       filled: true,
+                      labelText: "Password",
+                      hintText: 'at least 8 characters',
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: Icon(Icons.remove_red_eye),
                       hintText: 'Password',
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
                   validator: login_validation().validatePassword,
