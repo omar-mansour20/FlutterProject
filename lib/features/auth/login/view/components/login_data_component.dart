@@ -52,7 +52,6 @@ class login_data_component extends StatelessWidget {
                     labelText: "Email",
                     hintText: 'xxx@gmail.com',
                     prefixIcon: Icon(Icons.mail),
-                    hintText: 'Email',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),),),
                    validator: login_validation().validateEmail,   ),
                 SizedBox(
@@ -68,7 +67,6 @@ class login_data_component extends StatelessWidget {
                       hintText: 'at least 8 characters',
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: Icon(Icons.remove_red_eye),
-                      hintText: 'Password',
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))),
                   validator: login_validation().validatePassword,
                 ),
