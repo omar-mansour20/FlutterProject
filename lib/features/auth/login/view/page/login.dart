@@ -17,8 +17,6 @@ class loginScreen extends StatelessWidget {
     builder: (context, state) {
     final LoginController controller=context.read<LoginController>();
     return Scaffold(
-    backgroundColor: Colors.black,
-    appBar: AppBar(),
     body: login_data_component(controller: controller),
     );
     },
