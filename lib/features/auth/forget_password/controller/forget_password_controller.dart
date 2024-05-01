@@ -17,7 +17,7 @@ void OnPressedConfirmButtom(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('successfully')),
     );
-    Navigator.pushNamed(context,VerificationCodeScreen.screenRoute);
+    Navigator.pushNamed(context,'verificationCode');
   }
 }
 }

@@ -5,7 +5,6 @@ import 'package:hotel_reservation_project/features/auth/forget_password/view/com
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class forgetPaswwordScreen extends StatelessWidget {
-  static const String screenRoute = 'forgetPassword_screen';
 
   const forgetPaswwordScreen({super.key});
 

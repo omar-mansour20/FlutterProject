@@ -1,6 +1,5 @@
 
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/auth/login/controller/login_state.dart';
@@ -19,7 +18,7 @@ class LoginController extends Cubit<LoginState>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('successfully')),
       );
-      Navigator.pushNamed(context, loginScreen.screenRoute);
+      Navigator.pushNamed(context, 'dashBoard');
     }
   }
 }

@@ -98,7 +98,7 @@ class login_data_component extends StatelessWidget {
                     // signup button
 
                     TextButton(onPressed:(){
-                        Navigator.pushNamed(context, SignUpScreen.screenRoute);
+                        Navigator.pushNamed(context, 'signup');
                     },
                      child: Text('Sign Up', style: TextStyle
                       (
@@ -112,7 +112,7 @@ class login_data_component extends StatelessWidget {
                     // forgetpassword button
 
                     TextButton(onPressed:(){
-                      Navigator.pushNamed(context, forgetPaswwordScreen.screenRoute);
+                      Navigator.pushNamed(context, 'forgetpPassword');
                     }, child: Text('Forget Password', style: TextStyle
                       (
                       decoration: TextDecoration.underline,

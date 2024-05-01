@@ -4,7 +4,6 @@ import 'package:hotel_reservation_project/features/auth/vererfication_code/contr
 import 'package:hotel_reservation_project/features/auth/vererfication_code/view/components/verification_code_component.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class VerificationCodeScreen extends StatelessWidget {
-  static const String screenRoute = 'verification_code_screen';
 
   const VerificationCodeScreen({super.key});
 

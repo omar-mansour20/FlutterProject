@@ -22,7 +22,7 @@ void OnPressedConfirmButtom(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('successfully')),
     );
-    Navigator.pushNamed(context, loginScreen.screenRoute);
+    Navigator.pushNamed(context, 'login');
   }
 }
 }

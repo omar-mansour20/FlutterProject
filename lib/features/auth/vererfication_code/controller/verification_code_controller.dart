@@ -15,7 +15,7 @@ class VerificationCodeController extends Cubit<VerificationCodeState>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('successfully')),
       );
-      Navigator.pushNamed(context, confirmPasswordScreen.screenRoute);
+      Navigator.pushNamed(context, 'confirmPassword');
     }
   }
 }

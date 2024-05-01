@@ -5,7 +5,6 @@ import 'package:hotel_reservation_project/features/auth/confirm_password/view/co
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class confirmPasswordScreen extends StatelessWidget {
-  static const String screenRoute = 'confirm_password_screen';
 
   const confirmPasswordScreen({super.key});
 
