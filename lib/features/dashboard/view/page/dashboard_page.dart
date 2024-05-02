@@ -3,26 +3,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_controller.dart';
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_state.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/account/view/page/account_page.dart';
 
 class dashBoardPage extends StatelessWidget {
+  final List<String> appBarTitles = const ['Home', 'Search', 'Account'];
+
   const dashBoardPage({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider( 
-      // to take an object from controller
-      create: (context) => dashboardController(), //object
-      child: BlocBuilder<dashboardController, dashboardState>( // for syncing changes
-         builder: (context, state){
+    return BlocProvider(
+        // to take an object from controller
+        create: (context) => dashboardController(), //object
+        child: BlocBuilder<dashboardController, dashboardState>(
+            // for syncing changes
+            builder: (context, state) {
           dashboardController controller = context.read<dashboardController>();
 
           return Scaffold(
-            appBar: AppBar(backgroundColor: Colors.red,),
+            appBar: AppBar(
+              backgroundColor: Colors.grey,
+              title: Text(appBarTitles[controller.tapIndex]),
+              actions: [
+                IconButton(onPressed: () async {
+                await  (await DatabaseRepo.instance_of_memory_object).insert(name: 'omar',address: 'menouf');
+                }, icon: Icon(CupertinoIcons.add))
+              ],
+            ),
             //pageview
             body: PageView(
               controller: controller.pageViewController,
               onPageChanged: controller.onChangingTapIndex,
-              children: [Text("Page1",),Text("Page2"),Text("Page3"),Text("Page4"),Text("Page5")],
+              children: [
+                Text(
+                  "Home",
+                ),
+                Text(
+                  "Search",
+                ),
+                AccountPage()
+              ],
             ),
             // navigationbar
             bottomNavigationBar: BottomNavigationBar(
@@ -32,19 +53,22 @@ class dashBoardPage extends StatelessWidget {
               unselectedItemColor: Colors.black,
               selectedItemColor: Colors.red,
               unselectedLabelStyle: const TextStyle(fontSize: 20),
-              selectedLabelStyle:const TextStyle(fontSize: 30) ,
+              selectedLabelStyle: const TextStyle(fontSize: 30),
               items: const [
-                BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: 'Page1'),
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Page2'),
-                BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page3'),
-                BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page4'),
-                BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page5'),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      CupertinoIcons.home,
+                    ),
+                    label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.search), label: 'Search'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.account_circle_rounded), label: 'Account'),
+                //BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page4'),
+                //BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page5'),
               ],
-
-              ),
+            ),
           );
-        } 
-      )
-    );
+        }));
   }
-} 
+}

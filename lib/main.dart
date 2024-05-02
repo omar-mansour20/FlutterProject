@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       onGenerateRoute: routeGenerator.onGenerateRoute,
-      initialRoute: 'Onborading',
+      initialRoute: 'dashBoard',
       // onGenerateInitialRoutes: (_) =>routeGenerator.initRoutes,
       );
   }
