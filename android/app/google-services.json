@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605610243444",
+    "project_id": "fluttercourse-b59fa",
+    "storage_bucket": "fluttercourse-b59fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605610243444:android:ada929412ecee92365e821",
+        "android_client_info": {
+          "package_name": "com.example.hotel_reservation_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0geGnlseRKvxKEyM8YodpJuelB2dUpA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

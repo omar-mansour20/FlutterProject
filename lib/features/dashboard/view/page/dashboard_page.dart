@@ -5,6 +5,10 @@ import 'package:hotel_reservation_project/features/dashboard/controller/dashboar
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_state.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/view/page/account_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
+
+import '../../modules/home/model/repo/firebase_data.dart';
 
 class dashBoardPage extends StatelessWidget {
   final List<String> appBarTitles = const ['Home', 'Search', 'Account'];
@@ -27,7 +31,9 @@ class dashBoardPage extends StatelessWidget {
               title: Text(appBarTitles[controller.tapIndex]),
               actions: [
                 IconButton(onPressed: () async {
-                await  (await DatabaseRepo.instance_of_memory_object).insert(name: 'omar',address: 'menouf');
+                await  (await DatabaseRepo.instance).insert(name: 'omar',address: 'menouf');
+                await  (await HotelDatabaseRepo.instance).insert(name: 'omar',address: 'menouf');
+                //await (await FirebaseRepo.instance).insert(name: 'Helton',address: 'cairo');
                 }, icon: Icon(CupertinoIcons.add))
               ],
             ),
@@ -36,9 +42,8 @@ class dashBoardPage extends StatelessWidget {
               controller: controller.pageViewController,
               onPageChanged: controller.onChangingTapIndex,
               children: [
-                Text(
-                  "Home",
-                ),
+                  HomePage()
+                ,
                 Text(
                   "Search",
                 ),

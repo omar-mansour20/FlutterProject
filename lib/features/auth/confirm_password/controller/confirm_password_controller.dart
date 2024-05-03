@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/auth/confirm_password/controller/confirm_password_state.dart';
-import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
 
 class ConfirmPasswordController extends Cubit<ConfirmPasswordState>
 {

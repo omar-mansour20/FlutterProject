@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hotel_reservation_project/core/firebase/my_firebaase.dart';
 import 'package:hotel_reservation_project/features/auth/Onboarding/onbordingview.dart';
 import 'package:hotel_reservation_project/features/auth/forget_password/view/page/forgetPassword_page.dart';
 import 'package:hotel_reservation_project/features/auth/login/view/page/login.dart';
@@ -7,20 +9,21 @@ import 'package:hotel_reservation_project/features/auth/confirm_password/view/pa
 import 'package:hotel_reservation_project/features/auth/vererfication_code/view/page/verification_code_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/view/page/dashboard_page.dart';
 
-void main() {
+void main() async {
+  //WidgetsFlutterBinding.ensureInitialized();
+  //await MyFirebase().init();
+
   runApp(MyApp());
 }
-  
 
-class MyApp extends StatelessWidget{
- 
-  @override 
-  Widget build(BuildContext context){
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: routeGenerator.onGenerateRoute,
-      initialRoute: 'dashBoard',
+      initialRoute: 'Onborading',
       // onGenerateInitialRoutes: (_) =>routeGenerator.initRoutes,
-      );
+    );
   }
 }
 
@@ -31,7 +34,7 @@ class routeGenerator {
     ),
   ];
 
-  static Route<dynamic> onGenerateRoute(RouteSettings settings){
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     //final args = settings.arguments;
     //final List data = settings.arguments as List;
 
@@ -53,7 +56,7 @@ class routeGenerator {
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const VerificationCodeScreen(),
         );
-        case 'confirmPassword':
+      case 'confirmPassword':
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const confirmPasswordScreen(),
         );
@@ -68,7 +71,7 @@ class routeGenerator {
 
       default:
         return MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => const  OnboradingView(),
+          builder: (BuildContext context) => const OnboradingView(),
         );
     }
   }

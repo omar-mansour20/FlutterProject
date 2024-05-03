@@ -12,7 +12,7 @@ class AccountCubit extends Cubit<AccountState> {
   List<AccountModel> accounts = [];
   Future<void> init() async { 
     emit(AccountLoading());
-    accounts = await (await DatabaseRepo.instance_of_memory_object).fetch();
+    accounts = await (await DatabaseRepo.instance).fetch();
     //accounts = await FirebaseRepo.instance.fetch();
     if (accounts.isEmpty) {
       emit(AccountEmpty());
@@ -21,7 +21,7 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  Future<DatabaseRepo> get instance_of_memory_object => DatabaseRepo.instance_of_memory_object;
+  Future<DatabaseRepo> get instance_of_memory_object => DatabaseRepo.instance;
 }
 
 sealed class AccountState {}
