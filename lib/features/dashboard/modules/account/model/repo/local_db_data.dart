@@ -9,7 +9,7 @@ class DatabaseRepo extends ParentRepo{
   static DatabaseRepo? _singletonePatternObject;
   static late Database _database;
 
-  static Future<DatabaseRepo> get instance_of_memory_object async {
+  static Future<DatabaseRepo> get instance async {
     if (_singletonePatternObject == null) {
       await _initDatabase();
       _singletonePatternObject = DatabaseRepo._init();
@@ -40,6 +40,9 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
 name TEXT NOT NULL, 
 address TEXT )
 """);
+
+  
+
   }
 
 

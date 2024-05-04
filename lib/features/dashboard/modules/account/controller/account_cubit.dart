@@ -1,4 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/account_model.dart';
 
@@ -11,7 +12,7 @@ class AccountCubit extends Cubit<AccountState> {
   List<AccountModel> accounts = [];
   Future<void> init() async { 
     emit(AccountLoading());
-    accounts = await (await DatabaseRepo.instance_of_memory_object).fetch();
+    accounts = await (await DatabaseRepo.instance).fetch();
     //accounts = await FirebaseRepo.instance.fetch();
     if (accounts.isEmpty) {
       emit(AccountEmpty());
@@ -20,7 +21,7 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  Future<DatabaseRepo> get instance_of_memory_object => DatabaseRepo.instance_of_memory_object;
+  Future<DatabaseRepo> get instance_of_memory_object => DatabaseRepo.instance;
 }
 
 sealed class AccountState {}

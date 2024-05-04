@@ -28,9 +28,11 @@ class dashBoardPage extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.grey,
               title: Text(appBarTitles[controller.tapIndex]),
+              centerTitle: true,
               actions: [
                 IconButton(onPressed: () async {
-                await  (await DatabaseRepo.instance_of_memory_object).insert(name: 'omar',address: 'menouf');
+                await  (await DatabaseRepo.instance).insert(name: 'omar',address: 'menouf');
+                controller.onChangingTapIndex(3);
                 }, icon: const Icon(CupertinoIcons.add))
               ],
             ),

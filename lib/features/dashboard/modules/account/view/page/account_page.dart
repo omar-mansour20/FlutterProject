@@ -17,21 +17,23 @@ class AccountPage extends StatelessWidget {
           final AccountCubit controller = context.read<AccountCubit>();
           //scaffold
           return Scaffold(
+            //backgroundColor: Color.fromARGB(255, 45, 45, 45),
             body: state is AccountLoading
-                ? const CircularProgressIndicator()// loading screen
+                ? const CircularProgressIndicator() // loading screen
                 : state is AccountEmpty
                     ? const Center(
                         child: Icon(
-                        CupertinoIcons.delete, // icon of delete if state is empty
+                        CupertinoIcons
+                            .delete, // icon of delete if state is empty
                         size: 100,
                         color: Colors.red,
-                      )
-                      )
-                      //else
-                    : ListView.builder( 
+                      ))
+                    //else
+                    : ListView.builder(
                         itemCount: controller.accounts.length,
                         itemBuilder: (_, int index) {
-                          return AccountItemWidget(accountModel: controller.accounts[index]);
+                          return AccountItemWidget(
+                              accountModel: controller.accounts[index]);
                         }),
           );
         },
