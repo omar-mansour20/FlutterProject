@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget{
  
   @override 
   Widget build(BuildContext context){
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: routeGenerator.onGenerateRoute,
       initialRoute: 'Onborading',
       // onGenerateInitialRoutes: (_) =>routeGenerator.initRoutes,
@@ -45,7 +46,7 @@ class routeGenerator {
           builder: (BuildContext context) => const SignUpScreen(),
         );
 
-      case 'forgetpPassword':
+      case 'forgetPassword':
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const forgetPaswwordScreen(),
         );
