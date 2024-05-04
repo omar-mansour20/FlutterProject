@@ -5,9 +5,12 @@ import 'package:hotel_reservation_project/features/dashboard/controller/dashboar
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_state.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/view/page/account_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/search/view/page/search_page.dart';
 
 class dashBoardPage extends StatelessWidget {
-  final List<String> appBarTitles = const ['Home', 'Search', 'Account'];
+  final List<String> appBarTitles = const ['Home',  'reservation','Search','Account'];
 
   const dashBoardPage({Key? key}) : super(key: key);
 
@@ -28,20 +31,17 @@ class dashBoardPage extends StatelessWidget {
               actions: [
                 IconButton(onPressed: () async {
                 await  (await DatabaseRepo.instance_of_memory_object).insert(name: 'omar',address: 'menouf');
-                }, icon: Icon(CupertinoIcons.add))
+                }, icon: const Icon(CupertinoIcons.add))
               ],
             ),
             //pageview
             body: PageView(
               controller: controller.pageViewController,
               onPageChanged: controller.onChangingTapIndex,
-              children: [
-                Text(
-                  "Home",
-                ),
-                Text(
-                  "Search",
-                ),
+              children: const [
+                  HomePage(),
+                  ReservationPage(),
+                SearchPage(),
                 AccountPage()
               ],
             ),
@@ -60,6 +60,8 @@ class dashBoardPage extends StatelessWidget {
                       CupertinoIcons.home,
                     ),
                     label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.bed), label: 'registration'),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.search), label: 'Search'),
                 BottomNavigationBarItem(

@@ -112,7 +112,7 @@ class login_data_component extends StatelessWidget {
                     // forgetpassword button
 
                     TextButton(onPressed:(){
-                      Navigator.pushNamed(context, 'forgetpPassword');
+                      Navigator.pushNamed(context, 'forgetPassword');
                     }, child: Text('Forget Password', style: TextStyle
                       (
                       decoration: TextDecoration.underline,
