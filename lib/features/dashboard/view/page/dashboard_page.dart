@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_controller.dart';
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_state.dart';
-import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
+// import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/view/page/account_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/search/view/page/search_page.dart';
@@ -31,8 +32,10 @@ class dashBoardPage extends StatelessWidget {
               centerTitle: true,
               actions: [
                 IconButton(onPressed: () async {
-                await  (await DatabaseRepo.instance).insert(name: 'omar',address: 'menouf');
                 controller.onChangingTapIndex(3);
+                Navigator.pushNamed(context, 'newAccount');
+
+                //await  (await HotelDatabaseRepo.instance).insert(name:'hotel1',address:'cairo',roomCategory: 'first class',descreption: 'very nice hotel',price: 1500);
                 }, icon: const Icon(CupertinoIcons.add))
               ],
             ),
@@ -55,7 +58,8 @@ class dashBoardPage extends StatelessWidget {
               unselectedItemColor: Colors.black,
               selectedItemColor: Colors.red,
               unselectedLabelStyle: const TextStyle(fontSize: 20),
-              selectedLabelStyle: const TextStyle(fontSize: 30),
+              selectedLabelStyle: const TextStyle(fontSize: 25),
+              showUnselectedLabels: true,
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(

@@ -23,7 +23,7 @@ class DatabaseRepo extends ParentRepo{
     final String databasePath = await getDatabasesPath();
 
     // the final path
-    final String path = databasePath + "/accounts.db";
+    final String path = databasePath + "/users.db";
 
     _database = await  openDatabase(
       path,
@@ -35,10 +35,12 @@ class DatabaseRepo extends ParentRepo{
   // create the table for th db
   static Future<void> createTables(Database db, _) async {
     await db.execute("""
-CREATE TABLE account (
+CREATE TABLE user (
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 name TEXT NOT NULL, 
-address TEXT )
+email TEXT,
+phone INTEGER,
+password TEXT )
 """);
 
   
@@ -52,22 +54,22 @@ address TEXT )
   // delete
   @override
   Future<void> delete({required int id}) async {
-    await _database.delete('account', where: 'id=?', whereArgs: [id]);
+    await _database.delete('user', where: 'id=?', whereArgs: [id]);
   } 
 
 
   // fetch
   @override
   Future<List<AccountModel>> fetch() async {
-    return (await _database.query('account')).map((e) => AccountModel.fromJson(e)).toList();
+    return (await _database.query('user')).map((e) => AccountModel.fromJson(e)).toList();
     // convert the list of map into list of our model
   }
 
 
   // insert
   @override
-  Future<void> insert({required String name, String? address}) async {
-    await _database.insert('account', {'name':name,'address':address});
+  Future<void> insert({required String name, String? email,int? phone ,String? password }) async {
+    await _database.insert('user', {'name':name,'email':email,'phone':phone,'password':password});
   }
 
 }

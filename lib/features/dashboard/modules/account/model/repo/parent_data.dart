@@ -3,7 +3,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/account/mod
 
 // abestract class 
 abstract class ParentRepo { 
-  Future<void> insert({required String name, String? address}); //insert
+  Future<void> insert({required String name, String? email, int phone ,String? password}); //insert
 
   Future<List<AccountModel>> fetch(); // fetch
 
