@@ -1,6 +1,3 @@
-
-import 'dart:async';
-
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/parent_data.dart';
 import 'package:sqflite/sqflite.dart';
@@ -77,7 +74,7 @@ price INTEGER )
    String? roomCategory,
    String? descreption,
    int? price}) async {
-    await _database.insert('hotel', {'name':name,'address':address});
+    await _database.insert('hotel', {'name':name,'address':address,'roomCategory':roomCategory,'descreption':descreption,'price':price});
   }
 
 }

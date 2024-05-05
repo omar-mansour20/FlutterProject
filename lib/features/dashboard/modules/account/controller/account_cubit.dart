@@ -4,6 +4,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/account/mod
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/account_model.dart';
 
 
+
 class AccountCubit extends Cubit<AccountState> {
   AccountCubit() : super(AccountLoading()) {
     init();
@@ -21,7 +22,7 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  Future<DatabaseRepo> get instance_of_memory_object => DatabaseRepo.instance;
+  Future<DatabaseRepo> get instance => DatabaseRepo.instance;
 }
 
 sealed class AccountState {}
