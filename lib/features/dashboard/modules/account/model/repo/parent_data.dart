@@ -7,5 +7,11 @@ abstract class ParentRepo {
 
   Future<List<AccountModel>> fetch(); // fetch
 
+
+  Future<String?> getPassword({required String email}); // fetch
+
   Future<void> delete({required int id}); //delete
+
+  Future<void> updatePassword({required String email,String newPassword}); //delete
+  Future<void> checkEmail({required String email}); //delete
 }
