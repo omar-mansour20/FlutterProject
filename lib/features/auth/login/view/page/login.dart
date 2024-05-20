@@ -4,7 +4,6 @@ import 'package:hotel_reservation_project/features/auth/login/controller/login_s
 import 'package:hotel_reservation_project/features/auth/login/view/components/login_data_component.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class loginScreen extends StatelessWidget {
-  static const String screenRoute = 'login_screen';
   
   const loginScreen({super.key});
 

@@ -3,26 +3,26 @@ import 'package:hotel_reservation_project/features/auth/vererfication_code/contr
 import 'package:hotel_reservation_project/features/auth/vererfication_code/controller/verification_code_state.dart';
 import 'package:hotel_reservation_project/features/auth/vererfication_code/view/components/verification_code_component.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-class VerificationCodeScreen extends StatelessWidget {
-  static const String screenRoute = 'verification_code_screen';
 
+class VerificationCodeScreen extends StatelessWidget {
   const VerificationCodeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child:BlocProvider<VerificationCodeController>(
-        create:(context) => VerificationCodeController(),
-    child:BlocBuilder<VerificationCodeController, VerificationCodeState>(
-    builder: (context, state) {
-    final VerificationCodeController controller=context.read<VerificationCodeController>();
-    return Scaffold(
-    appBar: AppBar(),
-    body: verification_code_component(controller:controller),
-    );
-    },
-    ),
+      child: BlocProvider<VerificationCodeController>(
+        create: (context) => VerificationCodeController(),
+        child: BlocBuilder<VerificationCodeController, VerificationCodeState>(
+          builder: (context, state) {
+            final VerificationCodeController controller =
+                context.read<VerificationCodeController>();
+            return Scaffold(
+              appBar: AppBar(),
+              body: verification_code_component(controller: controller, arguments:'',),
+            );
+          },
         ),
+      ),
     );
   }
 }
