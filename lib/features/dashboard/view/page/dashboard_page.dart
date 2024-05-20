@@ -8,6 +8,9 @@ import 'package:hotel_reservation_project/features/dashboard/modules/account/vie
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/favorite/view/page/favorite_page.dart';
+
+class dashBoardPage extends StatelessWidget {
 import 'package:hotel_reservation_project/features/dashboard/modules/search/view/page/search_page.dart';
 
 class dashBoardPage extends StatelessWidget {
@@ -67,6 +70,10 @@ class dashBoardPage extends StatelessWidget {
                     ),
                     label: 'Home'),
                 BottomNavigationBarItem(
+
+                    icon: Icon(Icons.bed), label: 'Registration'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.heart), label: 'Favorite'),
                     icon: Icon(Icons.bed), label: 'registration'),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.search), label: 'Search'),

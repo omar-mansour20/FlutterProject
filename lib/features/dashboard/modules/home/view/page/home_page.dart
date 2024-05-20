@@ -1,3 +1,40 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/view/components/Home_component.dart';
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+  
+
+  @override
+  Widget build(BuildContext context) {
+   return BlocProvider(
+    create: (context) => HotelCubit(),
+      child: BlocBuilder<HotelCubit, HotelState>(
+        builder: (context,State){
+          final HotelCubit controller =context.read<HotelCubit>();
+          var state;
+          return Scaffold(
+            body: state is HotelLoading?
+            const CircularProgressIndicator():
+            state is HotelEmpty?
+            const Icon(CupertinoIcons.delete):
+             ListView.builder(
+              itemBuilder: (_,int index)=>Home_component(
+                hotelModel: controller.hotels[index]) ,
+              itemCount: controller.hotels.length,
+               ),
+              
+    );
+        }
+    ),
+   );
+  }
+}
+
+ 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/components/Home_component.dart';
@@ -13,6 +50,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 
 
 

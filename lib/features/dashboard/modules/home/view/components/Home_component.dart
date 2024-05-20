@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
 
 class Home_component extends StatelessWidget {
+  const Home_component({super.key,required this.hotelModel});
+  final HotelModel hotelModel;
   const Home_component({super.key});
 
   @override
@@ -13,6 +16,88 @@ class Home_component extends StatelessWidget {
       body: Center(
         child: ListView(
           children: [
+            Text(hotelModel.name??"hotel"),
+            Text(hotelModel.descreption??"descreption")
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel1.jpeg',
+            //       hotelName: 'Boutique Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel2.jpeg',
+            //       hotelName: 'Westin Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel3.jpeg',
+            //       hotelName: 'Shangri-La Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //   ],
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel4.jpeg',
+            //       hotelName: 'Sheraton Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel5.jpeg',
+            //       hotelName: 'Hyatt Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel6.jpeg',
+            //       hotelName: 'Fairmont Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //   ],
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel7.jpeg',
+            //       hotelName: 'Mandarin Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel8.jpeg',
+            //       hotelName: 'Peninsula Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel9.jpeg',
+            //       hotelName: 'Regis Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //   ],
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel10.jpeg',
+            //       hotelName: 'Seasons Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel11.jpeg',
+            //       hotelName: 'Wynn Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //     HotelBox(
+            //       imageUrl: 'assets/images/hotel12.jpeg',
+            //       hotelName: 'paris Hotel',
+            //       hotelSalary: "2500",
+            //     ),
+            //   ],
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -106,6 +191,8 @@ class HotelBox extends StatelessWidget {
   final String hotelSalary;
   HotelBox(
       {required this.imageUrl,
+      required this.hotelName,
+      required this.hotelSalary});
         required this.hotelName,
         required this.hotelSalary});
 
@@ -172,4 +259,8 @@ class HotelBox extends StatelessWidget {
       ),
     );
   }
+
 }
+
+}
+
