@@ -14,11 +14,10 @@ class HomePage extends StatelessWidget {
       child: BlocBuilder<HotelCubit, HotelState>(
         builder: (context,State){
           final HotelCubit controller =context.read<HotelCubit>();
-          var state;
           return Scaffold(
-            body: state is HotelLoading?
+            body: State is HotelLoading?
             const CircularProgressIndicator():
-            state is HotelEmpty?
+            State is HotelEmpty?
             const Icon(CupertinoIcons.delete):
              ListView.builder(
               itemBuilder: (_,int index)=>Home_component(
@@ -34,26 +33,6 @@ class HomePage extends StatelessWidget {
 }
 
  
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_reservation_project/features/dashboard/modules/home/view/components/Home_component.dart';
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-    child: Scaffold(
-        body: Home_component(),
-    ),
-    );
-  }
-}
-
-
-
-
 
 
 
