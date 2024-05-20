@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.3 <4.0.0'
+  sdk: '>=3.3.2 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -40,6 +40,8 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   pin_code_fields: ^8.0.1
   flutter_bloc: ^8.1.5
+  path: ^1.9.0
+  sqflite: ^2.3.3+1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,8 @@ flutter_launcher_icons:
   android: true
   image_path_android: "assets/images/logoapp.png"
   image_path_ios: "assets/images/logoapp.png"
+  adaptive_icon_foreground: "assets/images/logoapp.png"
+  adaptive_icon_background: "assets/images/logoapp.png"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

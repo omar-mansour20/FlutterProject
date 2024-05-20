@@ -7,7 +7,7 @@ import 'package:hotel_reservation_project/features/auth/vererfication_code/contr
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class verification_code_component extends StatelessWidget {
-  verification_code_component({super.key, required this.controller});
+  verification_code_component({super.key, required this.controller, required String arguments});
 
   final VerificationCodeController controller;
   @override
