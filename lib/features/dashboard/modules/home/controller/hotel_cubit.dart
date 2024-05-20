@@ -3,14 +3,15 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/parent_data.dart';
-import 'package:path/path.dart';
 
+import 'package:path/path.dart';
 class HotelCubit extends Cubit<HotelState> {
   HotelCubit() : super(HotelLoading()) {
     init();
   }
 
   List<HotelModel> hotels = [];
+
 
   Future<void> init() async {
     emit(HotelLoading());
@@ -20,6 +21,10 @@ class HotelCubit extends Cubit<HotelState> {
           .inserthotel(name: 'hotel1', description: 'desc', price: 2000)
     ];
 
+    hotels = await (await HotelDatabaseRepo.instance).fetch();
+  Future<void> init() async { 
+    emit(HotelLoading());
+    //hotels = await FirebaseRepo.instance.fetch();
     hotels = await (await HotelDatabaseRepo.instance).fetch();
     if (hotels.isEmpty) {
       emit(HotelEmpty());
@@ -39,4 +44,7 @@ final class HotelLoading extends HotelState {}
 final class HotelLoaded extends HotelState {}
 
 // if the data was empty
+
 final class HotelEmpty extends HotelState {}
+final class HotelEmpty extends HotelState {}
+
