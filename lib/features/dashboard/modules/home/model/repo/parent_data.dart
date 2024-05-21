@@ -4,7 +4,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 
 // abestract class 
 abstract class ParentRepo { 
-  Future<void> insert({required String name,
+  Future<void> insert({required String? name,
    String? descreption,
    int? price,
    int? quantity,

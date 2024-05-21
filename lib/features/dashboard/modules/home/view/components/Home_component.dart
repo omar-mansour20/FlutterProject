@@ -1,178 +1,133 @@
+import 'dart:developer';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 
 class Home_component extends StatelessWidget {
-  const Home_component({super.key, required this.hotelModel});
+  const Home_component({super.key, required this.hotelModel,required this.controller});
   final HotelModel hotelModel;
+  final HotelCubit controller;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(hotelModel.name ?? 'hotel'),
-        Text(hotelModel.descreption ?? 'descreption'),
-        // backgroundColor: Color.fromARGB(255, 237, 247, 207),
-        // body: Center(
-        //   child: ListView(
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: [
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel1.jpeg',
-        //       hotelName: 'Boutique Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel2.jpeg',
-        //       hotelName: 'Westin Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel3.jpeg',
-        //       hotelName: 'Shangri-La Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //   ],
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: [
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel4.jpeg',
-        //       hotelName: 'Sheraton Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel5.jpeg',
-        //       hotelName: 'Hyatt Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel6.jpeg',
-        //       hotelName: 'Fairmont Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //   ],
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: [
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel7.jpeg',
-        //       hotelName: 'Mandarin Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel8.jpeg',
-        //       hotelName: 'Peninsula Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel9.jpeg',
-        //       hotelName: 'Regis Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //   ],
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //   children: [
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel10.jpeg',
-        //       hotelName: 'Seasons Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel11.jpeg',
-        //       hotelName: 'Wynn Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //     HotelBox(
-        //       imageUrl: 'assets/images/hotel12.jpeg',
-        //       hotelName: 'paris Hotel',
-        //       hotelSalary: "2500",
-        //     ),
-        //   ],
-        // ),
-      ],
-    );
-    //   ),
-    // );
-  }
-}
-
-class HotelBox extends StatelessWidget {
-  final String imageUrl;
-  final String hotelName;
-  final String hotelSalary;
-  HotelBox(
-      {required this.imageUrl,
-      required this.hotelName,
-      required this.hotelSalary});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(8.0),
-      padding: EdgeInsets.all(16.0),
-      width: 120,
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.all(0),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Column(
+        borderRadius: BorderRadius.circular(10.0)),
+    child:Padding(
+    padding: const EdgeInsets.all(0),
+      child:Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              image: DecorationImage(
-                image: NetworkImage(imageUrl),
-                fit: BoxFit.cover,
-              ),
-            ),
+      Row(
+        children: [
+          Image.memory(hotelModel.image??Uint8List(5),
+            height: 200,
+            width: 200,
+            fit: BoxFit.cover,
           ),
-          SizedBox(height: 10.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                hotelName,
-                style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold),
+                Text(hotelModel.name ?? 'hotel',
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color:  Colors.blue,
+                  ),
+                ),
+                Text(hotelModel.descreption ?? 'desc' ,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color:  Colors.black,
+                  ),
+                ),
+              Text(hotelModel.price.toString(),
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color:  Colors.black,
+                ),
               ),
+
             ],
           ),
-          SizedBox(height: 10.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Spacer(),
+          Column(
             children: [
-              Text(
-                hotelSalary,
-                style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          SizedBox(height: 10.0),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ReservationPage()),
-              );
-            },
-            child: Text(
-              'reservation',
-              style: TextStyle(
-                fontSize: 12,
-                color: Color.fromARGB(255, 30, 108, 172),
+            Text((hotelModel.availableQuantity ??0).toString(),
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color:  Colors.blueGrey,
               ),
             ),
+            ],
+
+          ),
+        ],
+    ),
+    Divider(
+      thickness: .7,
+    ),
+              Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              //like
+              InkWell(child: hotelModel.favorite==1?
+              const Icon(
+                CupertinoIcons.heart_fill,
+                color: Colors.red,)
+                  :const Icon(CupertinoIcons.heart
+                ,color: Colors.red,),
+                onTap: (){
+                  if(hotelModel.favorite==1) {
+                    controller.addToCart(hotelModel.id?? 0,0);
+                  }
+                  else
+                  {
+                    controller.addToCart(hotelModel.id??0,1);
+                  }
+                },
+              ),
+             Container(
+                 height: 30,
+                 width: 1.5,
+                 color: Colors.grey,
+             ),
+
+             //reservation
+              InkWell(child: hotelModel.availableQuantity==1?
+              const Icon(
+                CupertinoIcons.bed_double,
+                color: Colors.blue,)
+                  :const Icon(CupertinoIcons.bed_double
+                ,color: Colors.grey,),
+                onTap: (){
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ReservationPage()),
+                  );
+                  hotelModel.availableQuantity==1;
+                },
+
+              ),
+            ],
           ),
         ],
       ),
+    ),
+    ),
     );
   }
 }

@@ -6,7 +6,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 
 class HotelDatabaseRepo extends ParentRepo {
   HotelDatabaseRepo._init();
-
+  HotelDatabaseRepo();
   static HotelDatabaseRepo? _singletonPatternObject;
   static late Database _database;
 
@@ -17,7 +17,6 @@ class HotelDatabaseRepo extends ParentRepo {
     }
     return _singletonPatternObject!;
   }
-
   // create the db
   static Future<void> _initDatabase() async {
     final String databasePath = await getDatabasesPath();
@@ -112,7 +111,7 @@ favorite INTEGER
       'hotel',
       {'favorite': value},
       where: 'id=?',
-      whereArgs: [id],
+      whereArgs: [id]
     );
   }
 
@@ -121,7 +120,7 @@ favorite INTEGER
   }
   
   @override
-  Future<void> insert({required String name, String? descreption, int? price, int? quantity, int? availableQuantity, Uint8List? image}) {
+  Future<void> insert({required String? name, String? descreption, int? price, int? quantity, int? availableQuantity, Uint8List? image}) {
     // TODO: implement insert
     throw UnimplementedError();
   }

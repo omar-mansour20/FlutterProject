@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class HotelModel {
-  String? id;
+  int? id;
   String? name;
   String? descreption;
   int? price;
@@ -22,7 +22,7 @@ class HotelModel {
 
   // named constructor
   HotelModel.fromJson(Map map) {
-    id = map['id'].toString();
+    id = map['id'];
     name = map['name'];
     descreption = map['descreption'];
     price = map['price'];

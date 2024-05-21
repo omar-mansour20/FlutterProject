@@ -9,9 +9,10 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/favorite/view/page/favorite_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/search/view/page/search_page.dart';
 
 class dashBoardPage extends StatelessWidget {
-  final List<String> appBarTitles = const ['Home',  'Reservation','Favorite','Account'];
+  final List<String> appBarTitles = const ['Home',  'Reservation','Favorite','Search','Account'];
 
   const dashBoardPage({Key? key}) : super(key: key);
 
@@ -46,6 +47,7 @@ class dashBoardPage extends StatelessWidget {
               children: const [
                   HomePage(),
                   ReservationPage(),
+                FavoritePage(),
                 SearchPage(),
                 AccountPage()
               ],
@@ -70,6 +72,8 @@ class dashBoardPage extends StatelessWidget {
                     icon: Icon(Icons.bed), label: 'Registration'),
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.heart), label: 'Favorite'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.search), label: 'Search'),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.account_circle_rounded), label: 'Account'),
                 //BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Page4'),

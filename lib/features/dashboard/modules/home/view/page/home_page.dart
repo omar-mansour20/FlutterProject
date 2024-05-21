@@ -2,29 +2,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_state.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/components/Home_component.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  
-
   @override
   Widget build(BuildContext context) {
-   return BlocProvider(
-    create: (context) => HotelCubit(),
+   return BlocProvider.value(
+    value: HotelCubit.instance,
       child: BlocBuilder<HotelCubit, HotelState>(
-        builder: (context,State){
+        builder: (context,state){
           final HotelCubit controller =context.read<HotelCubit>();
           return Scaffold(
             body: State is HotelLoading?
             const CircularProgressIndicator():
             State is HotelEmpty?
-            const Icon(CupertinoIcons.delete):
+            const Center(child: Icon(CupertinoIcons.delete,
+            size: 50,
+            color: Colors.blue,
+            ),):
              ListView.builder(
               itemBuilder: (_,int index)=>Home_component(
-                hotelModel: controller.hotels[index]) ,
+                hotelModel: controller.hotels[index], controller: controller,) ,
               itemCount: controller.hotels.length,
                ),
-              
+
     );
         }
     ),
@@ -45,7 +47,6 @@ class HomePage extends StatelessWidget {
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
 // import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 
 // class HomePage extends StatelessWidget {

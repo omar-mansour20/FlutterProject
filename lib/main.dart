@@ -11,18 +11,18 @@ import 'package:hotel_reservation_project/features/dashboard/view/page/dashboard
 void main() {
   runApp(MyApp());
 }
-  
+
 
 class MyApp extends StatelessWidget{
- 
-  @override 
+
+  @override
   Widget build(BuildContext context){
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: routeGenerator.onGenerateRoute,
       initialRoute: 'Onborading',
       // onGenerateInitialRoutes: (_) =>routeGenerator.initRoutes,
-      );
+    );
   }
 }
 
@@ -55,13 +55,13 @@ class routeGenerator {
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const VerificationCodeScreen(),
         );
-        case 'confirmPassword':
+      case 'confirmPassword':
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const confirmPasswordScreen(),
         );
       case 'dashBoard':
         return MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) => const dashBoardPage(),
+          builder:  (BuildContext context) => const dashBoardPage(),
         );
       case 'Onborading':
         return MaterialPageRoute<dynamic>(
