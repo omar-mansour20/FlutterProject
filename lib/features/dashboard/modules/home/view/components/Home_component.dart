@@ -106,19 +106,20 @@ class Home_component extends StatelessWidget {
              ),
 
              //reservation
-              InkWell(child: hotelModel.availableQuantity==1?
+              InkWell(child: hotelModel.availableQuantity ==1?
               const Icon(
-                CupertinoIcons.bed_double,
+                CupertinoIcons.bed_double_fill,
                 color: Colors.blue,)
                   :const Icon(CupertinoIcons.bed_double
                 ,color: Colors.grey,),
                 onTap: (){
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ReservationPage()),
-                  );
-                  hotelModel.availableQuantity==1;
+                  if((hotelModel.availableQuantity)==1) {
+                    controller.addCart(hotelModel.id?? 0,0);
+                  }
+                  else
+                  {
+                    controller.addCart(hotelModel.id??0,1);
+                  }
                 },
 
               ),

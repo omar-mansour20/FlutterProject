@@ -5,6 +5,7 @@ import 'package:hotel_reservation_project/features/dashboard/controller/dashboar
 import 'package:hotel_reservation_project/features/dashboard/controller/dashboard_state.dart';
 // import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/view/page/account_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/cards/view/page/Card_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/page/home_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
@@ -12,7 +13,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/favorite/vi
 import 'package:hotel_reservation_project/features/dashboard/modules/search/view/page/search_page.dart';
 
 class dashBoardPage extends StatelessWidget {
-  final List<String> appBarTitles = const ['Home',  'Reservation','Favorite','Search','Account'];
+  final List<String> appBarTitles = const ['Home',  'Cards','Favorite','Search','Account'];
 
   const dashBoardPage({Key? key}) : super(key: key);
 
@@ -37,6 +38,12 @@ class dashBoardPage extends StatelessWidget {
                 Navigator.pushNamed(context, 'newAccount');
 
                 //await  (await HotelDatabaseRepo.instance).insert(name:'hotel1',address:'cairo',roomCategory: 'first class',descreption: 'very nice hotel',price: 1500);
+                }, icon: const Icon(CupertinoIcons.add)),
+                IconButton(onPressed: () async {
+                  controller.onChangingTapIndex(3);
+                  Navigator.pushNamed(context, 'registration');
+
+                  //await  (await HotelDatabaseRepo.instance).insert(name:'hotel1',address:'cairo',roomCategory: 'first class',descreption: 'very nice hotel',price: 1500);
                 }, icon: const Icon(CupertinoIcons.add))
               ],
             ),
@@ -46,7 +53,7 @@ class dashBoardPage extends StatelessWidget {
               onPageChanged: controller.onChangingTapIndex,
               children: const [
                   HomePage(),
-                  ReservationPage(),
+                  CardPage(),
                 FavoritePage(),
                 SearchPage(),
                 AccountPage()
@@ -69,7 +76,7 @@ class dashBoardPage extends StatelessWidget {
                     ),
                     label: 'Home'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.bed), label: 'Registration'),
+                    icon: Icon(Icons.bed), label: 'Cards'),
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.heart), label: 'Favorite'),
                 BottomNavigationBarItem(

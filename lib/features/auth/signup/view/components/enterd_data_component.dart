@@ -19,17 +19,20 @@ class enterd_data_component extends StatelessWidget {
       child: BlocBuilder<SignupController, SignupState>(
         builder: (context, state) {
           SignupController controller=context.read<SignupController>();
+          child: DecoratedBox(
+            decoration:  BoxDecoration(
+              color: Theme.of(context).buttonTheme.colorScheme!.background,
+              borderRadius: BorderRadius.circular(20),
+            ),
+          );
           return Form(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
-                const Text(
+                Text(
                   "Create an account",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 20, 0, 99),
-                    fontSize: 25,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 10),
 

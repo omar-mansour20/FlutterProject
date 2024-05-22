@@ -5,7 +5,7 @@ class MyTheme{
 
   static final MyTheme instance=MyTheme();
 
-  ThemeData light=ThemeData.light(useMaterial3: true).copyWith(
+  ThemeData light=ThemeData.light().copyWith(
     buttonTheme: const ButtonThemeData(
         colorScheme:ColorScheme.light(
             background: Colors.orange,
@@ -27,7 +27,7 @@ class MyTheme{
       ),
     ),
   );
-  ThemeData dark=ThemeData.dark(useMaterial3: true).copyWith(
+  ThemeData dark=ThemeData.dark().copyWith(
     buttonTheme: const ButtonThemeData(
       colorScheme:ColorScheme.dark(
         background: Colors.blue,

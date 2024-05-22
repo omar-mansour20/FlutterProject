@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/Themes/my_Theme.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_state.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/view/components/Home_component.dart';
@@ -8,12 +9,18 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+
    return BlocProvider.value(
     value: HotelCubit.instance,
       child: BlocBuilder<HotelCubit, HotelState>(
         builder: (context,state){
           final HotelCubit controller =context.read<HotelCubit>();
-          return Scaffold(
+      return MaterialApp(
+        theme:MyTheme.instance.dark,
+          darkTheme:MyTheme.instance.light,
+          themeMode:ThemeMode.light,
+          home: Scaffold(
+
             body: State is HotelLoading?
             const CircularProgressIndicator():
             State is HotelEmpty?
@@ -21,13 +28,16 @@ class HomePage extends StatelessWidget {
             size: 50,
             color: Colors.blue,
             ),):
+
              ListView.builder(
+
               itemBuilder: (_,int index)=>Home_component(
                 hotelModel: controller.hotels[index], controller: controller,) ,
               itemCount: controller.hotels.length,
                ),
 
-    );
+    ),
+      );
         }
     ),
    );

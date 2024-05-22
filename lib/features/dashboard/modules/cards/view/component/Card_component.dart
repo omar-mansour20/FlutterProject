@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/cards/controller/Card_cubit.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/favorite/controller/Favorite_cubit.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/controller/hotel_cubit.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
@@ -12,10 +13,10 @@ import 'package:hotel_reservation_project/features/dashboard/modules/reservation
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/repo/home_local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 
-class Favorite_component extends StatelessWidget {
-  const Favorite_component({super.key, required this.hotelModel,required this.controller});
+class Card_component extends StatelessWidget {
+  const Card_component({super.key, required this.hotelModel,required this.controller});
   final HotelModel hotelModel;
-  final FavoriteCubit controller;
+  final CardCubit controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,6 +62,18 @@ class Favorite_component extends StatelessWidget {
                       ),
 
                     ],
+                  ),
+                  Spacer(),
+                  Column(
+                    children: [
+                      Text((hotelModel.availableQuantity ??0).toString(),
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color:  Colors.blueGrey,
+                        ),
+                      ),
+                    ],
 
                   ),
                 ],
@@ -72,28 +85,28 @@ class Favorite_component extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   //like
-                  InkWell(child: hotelModel.favorite==1?
-                  const Icon(
-                    CupertinoIcons.heart_fill,
-                    color: Colors.red,)
-                      :const Icon(CupertinoIcons.heart
-                    ,color: Colors.red,),
-                    onTap: (){
-                      if(hotelModel.favorite==1) {
-                        controller.addToCart(hotelModel.id?? 0,0);
-                      }
-                      else
-                      {
-                        controller.addToCart(hotelModel.id??0,1);
-                      }
-                    },
-                  ),
                   Container(
                     height: 30,
                     width: 1.5,
                     color: Colors.grey,
                   ),
+                  InkWell(child: hotelModel.availableQuantity ==1?
+                  const Icon(
+                    CupertinoIcons.bed_double_fill,
+                    color: Colors.blue,)
+                      :const Icon(CupertinoIcons.bed_double
+                    ,color: Colors.grey,),
+                    onTap: (){
+                      if((hotelModel.availableQuantity)==1) {
+                        controller.addCart(hotelModel.id?? 0,0);
+                      }
+                      else
+                      {
+                        controller.addCart(hotelModel.id??0,1);
+                      }
+                    },
 
+                  ),
                 ],
               ),
             ],

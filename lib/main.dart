@@ -6,6 +6,7 @@ import 'package:hotel_reservation_project/features/auth/signup/view/page/signup_
 import 'package:hotel_reservation_project/features/auth/confirm_password/view/page/confirm_password_page.dart';
 import 'package:hotel_reservation_project/features/auth/vererfication_code/view/page/verification_code_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/new_account/view/page/new_account_page.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/reservation/view/page/reservation_page.dart';
 import 'package:hotel_reservation_project/features/dashboard/view/page/dashboard_page.dart';
 
 void main() {
@@ -70,6 +71,10 @@ class routeGenerator {
       case 'newAccount':
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const NewAccountPage(),
+        );
+      case 'registration':
+        return MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => const ReservationPage(),
         );
       default:
         return MaterialPageRoute<dynamic>(
