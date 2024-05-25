@@ -31,11 +31,11 @@ class HotelCubit extends Cubit<HotelState> {
     await init();
       emit(HotelLoaded());
   }
-  void addCart(int id,int value)
-  {
-    repo.newQuantity(1, id);
-    init();
-    emit(HotelLoaded());
+  Future<void> addCart(int id,int value)
+  async {
+   await repo.newQuantity(value, id); 
+    await init();
+      emit(HotelLoaded());
   }
   // Future<FirebaseRepo> get instance_of_memory_object => FirebaseRepo.instance;
 }

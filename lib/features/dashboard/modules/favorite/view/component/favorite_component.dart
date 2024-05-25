@@ -13,39 +13,51 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 import 'package:hotel_reservation_project/features/dashboard/modules/home/model/home_model.dart';
 
 class Favorite_component extends StatelessWidget {
-  const Favorite_component({super.key, required this.hotelModel,required this.controller});
+  const Favorite_component(
+      {super.key, required this.hotelModel, required this.controller});
   final HotelModel hotelModel;
   final FavoriteCubit controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(0),
+      padding: const EdgeInsets.all(10),
       child: DecoratedBox(
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
+            color: Color.fromARGB(255, 227, 221, 197),
+            border: Border.all(color: Colors.black, width: 2),
             borderRadius: BorderRadius.circular(10.0)),
-        child:Padding(
-          padding: const EdgeInsets.all(0),
-          child:Column(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
             children: [
               Row(
                 children: [
-                  Image.asset('assets/images/hotel1.jpeg'),
+                  Column(children: [
+                    Image.memory(
+                      hotelModel.image ?? Uint8List(5),
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                    )
+                  ]),
+                  Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(hotelModel.name ?? 'hotel',
+                      Text(
+                        hotelModel.name ?? 'hotel',
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color:  Colors.blue,
+                          color: Colors.blue,
                         ),
                       ),
-                      Text(hotelModel.descreption ?? 'desc' ,
+                      Text(
+                        hotelModel.descreption ?? 'desc',
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color:  Colors.black,
+                          color: Colors.black,
                         ),
                       ),
                     ],
@@ -53,15 +65,15 @@ class Favorite_component extends StatelessWidget {
                   Spacer(),
                   Column(
                     children: [
-                      Text((hotelModel.availableQuantity ??0).toString(),
+                      Text(
+                        (hotelModel.availableQuantity ?? 0).toString(),
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color:  Colors.blueGrey,
+                          color: Colors.blueGrey,
                         ),
                       ),
                     ],
-
                   ),
                 ],
               ),
@@ -72,19 +84,21 @@ class Favorite_component extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   //like
-                  InkWell(child: hotelModel.favorite==1?
-                  const Icon(
-                    CupertinoIcons.heart_fill,
-                    color: Colors.red,)
-                      :const Icon(CupertinoIcons.heart
-                    ,color: Colors.red,),
-                    onTap: (){
-                      if(hotelModel.favorite==1) {
-                        controller.addToCart(hotelModel.id?? 0,0);
-                      }
-                      else
-                      {
-                        controller.addToCart(hotelModel.id??0,1);
+                  InkWell(
+                    child: hotelModel.favorite == 1
+                        ? const Icon(
+                            CupertinoIcons.heart_fill,
+                            color: Colors.red,
+                          )
+                        : const Icon(
+                            CupertinoIcons.heart,
+                            color: Colors.red,
+                          ),
+                    onTap: () {
+                      if (hotelModel.favorite == 1) {
+                        controller.addToCart(hotelModel.id ?? 0, 0);
+                      } else {
+                        controller.addToCart(hotelModel.id ?? 0, 1);
                       }
                     },
                   ),
@@ -93,7 +107,6 @@ class Favorite_component extends StatelessWidget {
                     width: 1.5,
                     color: Colors.grey,
                   ),
-
                 ],
               ),
             ],

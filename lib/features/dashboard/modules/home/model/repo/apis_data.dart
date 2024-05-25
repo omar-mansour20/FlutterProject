@@ -6,7 +6,7 @@ import 'package:hotel_reservation_project/features/dashboard/modules/home/model/
 class API_Repo {
  final Dio _dio = Dio();
 
-  String baseUrl = "https://78ba-156-203-152-215.negrok-free.app/";
+  String baseUrl = "https://4a49-45-242-228-119.ngrok-free.app/";
   Future<List<HotelModel>> fetch() async {
     final List<Map<String, dynamic>> maps = (await _dio.get(baseUrl + 'hotel')) as List<Map<String, dynamic>>;
     return maps.map((e) => HotelModel.fromJson(e)).toList();

@@ -14,8 +14,8 @@ class ReservationController extends Cubit<ReservationState>
 {
   ReservationController() : super(ReservationInitial());
   TextEditingController name = TextEditingController();
-  TextEditingController price = TextEditingController();
   TextEditingController description = TextEditingController();
+  TextEditingController price = TextEditingController();
   TextEditingController qntController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();

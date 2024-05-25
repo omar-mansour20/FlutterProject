@@ -63,6 +63,10 @@ favorite INTEGER
     final List<Map<String, dynamic>> maps = await _database.query('hotel', where: 'favorite=?', whereArgs: [1]);
     return maps.map((e) => HotelModel.fromJson(e)).toList();
   }
+  Future<List<HotelModel>> fetchCardHotels() async {
+    final List<Map<String, dynamic>> maps = await _database.query('hotel', where: 'availableQuantity=?', whereArgs: [1]);
+    return maps.map((e) => HotelModel.fromJson(e)).toList();
+  }
 
   // insert
   @override

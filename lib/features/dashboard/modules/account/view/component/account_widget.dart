@@ -12,8 +12,8 @@ class AccountItemWidget extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color:Color.fromARGB(255, 129, 184, 192),
-          border: Border.all(color: Colors.black,width: 2),
+          color: Color.fromARGB(255, 129, 184, 192),
+          border: Border.all(color: Colors.black, width: 2),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
@@ -52,6 +52,3 @@ class AccountItemWidget extends StatelessWidget {
     );
   }
 }
-
-
-

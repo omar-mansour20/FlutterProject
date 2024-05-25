@@ -1,0 +1,28 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "hotelreservation-5bdc9",
+          "appId": "1:396132068167:android:027e36cde1cc5e8f49ba62",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "hotelreservation-5bdc9",
+          "configurations": {
+            "android": "1:396132068167:android:027e36cde1cc5e8f49ba62",
+            "ios": "1:396132068167:ios:64b378047691cd1f49ba62",
+            "macos": "1:396132068167:ios:64b378047691cd1f49ba62",
+            "web": "1:396132068167:web:3f6000e47a87266949ba62",
+            "windows": "1:396132068167:web:2fb9aa1537c6bf3349ba62"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "singleProjectMode": true
+  }
+}

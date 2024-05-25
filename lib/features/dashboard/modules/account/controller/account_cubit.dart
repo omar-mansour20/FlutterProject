@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/firebase_data.dart';
 import 'package:meta/meta.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/repo/local_db_data.dart';
 import 'package:hotel_reservation_project/features/dashboard/modules/account/model/account_model.dart';

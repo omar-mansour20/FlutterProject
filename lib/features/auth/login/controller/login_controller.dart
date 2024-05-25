@@ -18,7 +18,7 @@ class LoginController extends Cubit<LoginState> {
     if (formkey.currentState!.validate()) {
       final email = EmailController.text;
       final password = passwordController.text;
-      if(true){
+      if(await checkCredentials(email, password, context)){
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('successfully')),
       );
