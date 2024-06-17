@@ -67,7 +67,6 @@ favorite INTEGER
     final List<Map<String, dynamic>> maps = await _database.query('hotel', where: 'availableQuantity=?', whereArgs: [1]);
     return maps.map((e) => HotelModel.fromJson(e)).toList();
   }
-
   // insert
   @override
   Future<HotelModel> inserthotel({

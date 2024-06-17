@@ -73,6 +73,7 @@ class Favorite_component extends StatelessWidget {
                           color: Colors.blueGrey,
                         ),
                       ),
+
                     ],
                   ),
                 ],

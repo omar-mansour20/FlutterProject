@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+
    return BlocProvider.value(
     value: HotelCubit.instance,
       child: BlocBuilder<HotelCubit, HotelState>(
@@ -26,7 +27,9 @@ class HomePage extends StatelessWidget {
             size: 50,
             color: Colors.blue,
             ),):
+
              ListView.builder(
+
               itemBuilder: (_,int index)=>Home_component(
                 hotelModel: controller.hotels[index], controller: controller,) ,
               itemCount: controller.hotels.length,
